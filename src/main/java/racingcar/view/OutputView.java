@@ -22,4 +22,8 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public void printResultMessage() {
+        System.out.println("실행 결과");
+    }
 }

@@ -8,9 +8,10 @@ import java.util.List;
 public class Cars {
 
     private final List<Car> cars;
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
     public Cars(List<Car> carList) {
-        this.cars = carList;
+        this.cars = List.copyOf(carList);
     }
 
     public static Cars createCars(String[] carNames) {
@@ -29,7 +30,8 @@ public class Cars {
     public void moveAll() {
 
         for (Car car : cars) {
-            car.move(new RandomNumberGenerator().randomNumberGenerate());
+            int randomNumber = randomNumberGenerator.randomNumberGenerate();
+            car.move(randomNumber);
         }
     }
 

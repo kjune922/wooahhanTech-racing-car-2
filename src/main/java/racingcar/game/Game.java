@@ -6,6 +6,8 @@ import racingcar.validate.TryNumValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+
 public class Game {
 
     private final InputView inputView = new InputView();
@@ -44,8 +46,8 @@ public class Game {
             outputView.printResultMessage();
             outputView.printRoundResult(cars.getCarList());
         }
-        String winners = cars.findWinner(cars.getCarList());
-        outputView.printWinner(winners);
+        List<String> winner = cars.findWinner();
+        outputView.printWinner(winner);
     }
 
     private String[] parseCarNames(String input){

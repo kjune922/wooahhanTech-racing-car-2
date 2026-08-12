@@ -41,9 +41,9 @@ public class Game {
          * 그래서 객체 생성 없이, 클래스 이름으로만 호출 가능
          */
 
+        outputView.printResultMessage();
         for (int i = 0; i < tryNum; i++) {
             cars.moveAll();
-            outputView.printResultMessage();
             outputView.printRoundResult(cars.getCarList());
         }
         List<String> winner = cars.findWinner();

@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.cars;
 
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
@@ -6,7 +6,7 @@ import racingcar.car.Cars;
 import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
-class GameTest {
+class CarsTest {
 
     @Test
     void 가정_멀리_이동한_자동차를_우승자로_선정() {
@@ -17,7 +17,7 @@ class GameTest {
 
         Cars cars = new Cars(List.of(lee,kim));
 
-        assertThat(cars.findWinner())
+        assertThat(cars.findWinners())
                 .containsExactly("lee");
     }
 
@@ -31,7 +31,7 @@ class GameTest {
 
         Cars cars = new Cars(List.of(lee,kim));
 
-        assertThat(cars.findWinner())
+        assertThat(cars.findWinners())
                 .containsExactly("lee","kim");
     }
 

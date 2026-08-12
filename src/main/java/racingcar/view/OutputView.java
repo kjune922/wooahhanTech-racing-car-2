@@ -17,7 +17,7 @@ public class OutputView {
     public void printRoundResult(List<Car> cars){
         for (Car car : cars) {
             System.out.println(
-                    car.getCarName() + ": " + "-".repeat(car.getPosition())
+                    car.getCarName() + " : " + "-".repeat(car.getPosition())
             );
         }
         System.out.println();
@@ -27,7 +27,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public void printWinner(List<String> winners){
+    public void printWinners(List<String> winners){
         System.out.println("최종 우승자 : " + String.join(", ",winners));
     }
 }

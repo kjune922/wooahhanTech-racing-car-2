@@ -33,7 +33,7 @@ public class Game {
          * Cars타입의 cars 변수를 선언함
          * 아직 Cars 객체가 담긴건 아님
          * 오른쪽 -> Cars.createCars(carNames);
-         * cars변수가 가리키는 객체의 createCars()를 호출하겠다는 뜻
+         * Cars 클래스에 소속된 static 메소드를 객체 없이 호출
          *
          * Cars cars = "결과" ; 인건데 여기서
          * "결과"를 먼저 구해야 cars변수에 넣을 수 있는데, 결과를 구할려면 Cars객체가 필요함
@@ -46,8 +46,8 @@ public class Game {
             cars.moveAll();
             outputView.printRoundResult(cars.getCarList());
         }
-        List<String> winner = cars.findWinner();
-        outputView.printWinner(winner);
+        List<String> winners = cars.findWinners();
+        outputView.printWinners(winners);
     }
 
     private String[] parseCarNames(String input){

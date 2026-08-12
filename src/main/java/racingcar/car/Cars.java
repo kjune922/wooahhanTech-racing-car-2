@@ -35,7 +35,7 @@ public class Cars {
         }
     }
 
-    public List<String> findWinner(){
+    public List<String> findWinners(){
         int maxDistance = 0;
         for (Car car : cars) {
             maxDistance = Math.max(car.getPosition(),maxDistance);

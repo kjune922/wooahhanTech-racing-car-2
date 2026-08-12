@@ -44,6 +44,8 @@ public class Game {
             outputView.printResultMessage();
             outputView.printRoundResult(cars.getCarList());
         }
+        String winners = cars.findWinner(cars.getCarList());
+        outputView.printWinner(winners);
     }
 
     private String[] parseCarNames(String input){

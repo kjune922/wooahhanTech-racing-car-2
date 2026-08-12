@@ -35,4 +35,18 @@ public class Cars {
         }
     }
 
+    public String findWinner(List<Car> cars){
+        StringBuilder sb = new StringBuilder();
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(car.getPosition(),maxDistance);
+        }
+        for (Car car : cars) {
+            if(car.getPosition() == maxDistance){
+                sb.append(car.getCarName());
+            }
+        }
+        return sb.toString();
+    }
+
 }

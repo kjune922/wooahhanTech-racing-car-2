@@ -18,13 +18,17 @@ class CarNameValidatorTest {
 
     @Test
     void 자동차_이름은_5글자까지만가능 () {
-        String carName = "leeeeee";
+        String carName1 = "leeeeee";
+        String carName2 = "kim";
 
         CarNameValidator carNameValidator = new CarNameValidator();
         assertThatThrownBy(() ->
-                carNameValidator.validateCarName(carName))
+                carNameValidator.validateCarName(carName1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자를 초과할 수 없습니다.");
+
+        assertThatCode(() -> carNameValidator.validateCarName(carName2))
+                .doesNotThrowAnyException();
 
     }
 
@@ -32,6 +36,7 @@ class CarNameValidatorTest {
     void 자동차_이름은_빈이름_공백_불가능 () {
         String carName1 = "";
         String carName2 = null;
+        String carName3 = "    ";
 
         CarNameValidator carNameValidator = new CarNameValidator();
 
@@ -42,6 +47,11 @@ class CarNameValidatorTest {
 
         assertThatThrownBy(() ->
                 carNameValidator.validateCarName(carName2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 비어 있을 수 없습니다.");
+
+        assertThatThrownBy(() ->
+                carNameValidator.validateCarName(carName3))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 비어 있을 수 없습니다.");
     }

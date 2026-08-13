@@ -31,6 +31,34 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도_횟수가_숫자가_아니면_예외_발생 () {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() ->
+                        runException("pobi","woni", "abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도_횟수_0이면_예외발생 () {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() ->
+                        runException("lee","kim", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름은_중복_불가능 () {
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() ->
+                        runException("lee", "lee", "5"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

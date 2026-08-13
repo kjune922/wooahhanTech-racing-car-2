@@ -19,14 +19,12 @@ public class CarNameValidator {
     public void validateCarNames(String[] carNames) {
         Set<String> set = new HashSet<>();
         for (String carName : carNames) {
+            validateCarName(carName);
+
             if(set.contains(carName)){
                 throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
             set.add(carName);
-        }
-
-        for (String carName : carNames) {
-            validateCarName(carName);
         }
     }
 }

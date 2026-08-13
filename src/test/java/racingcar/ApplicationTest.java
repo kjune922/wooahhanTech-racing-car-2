@@ -35,7 +35,7 @@ class ApplicationTest extends NsTest {
     void 시도_횟수가_숫자가_아니면_예외_발생 () {
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
-                        runException("pobi","woni", "abc"))
+                        runException("pobi,lee", "abc"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -44,7 +44,7 @@ class ApplicationTest extends NsTest {
     void 시도_횟수_0이면_예외발생 () {
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
-                        runException("lee","kim", "0"))
+                        runException("lee,kim", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -54,7 +54,7 @@ class ApplicationTest extends NsTest {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
-                        runException("lee", "lee", "5"))
+                        runException("lee,lee", "5"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

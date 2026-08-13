@@ -3,7 +3,8 @@ package racingcar.validate;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class TryNumValidatorTest {
 
@@ -23,9 +24,17 @@ class TryNumValidatorTest {
         int tryNum = 1;
         TryNumValidator tryNumValidator = new TryNumValidator();
 
-        Assertions.assertThatCode(() ->
+        assertThatCode(() ->
                 tryNumValidator.validateTryNum(tryNum))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 시도_횟수가_음수이면_예외가_발생한다() {
+        TryNumValidator validator = new TryNumValidator();
+
+        assertThatThrownBy(() -> validator.validateTryNum(-1))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }

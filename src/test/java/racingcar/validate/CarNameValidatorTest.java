@@ -41,9 +41,17 @@ class CarNameValidatorTest {
     }
 
     @Test
-    void 자동차_이름_앞뒤에_공백은_불가능하다 () {
+    void 자동차_이름_앞에_공백은_불가능하다 () {
         CarNameValidator carNameValidator = new CarNameValidator();
         assertThatThrownBy(() -> carNameValidator.validateCarName(" lee"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름 앞뒤에는 공백을 포함할 수 없습니다.");
+    }
+    @Test
+    void 자동차_이름_뒤에_공백을_포함할_수_없다() {
+        CarNameValidator validator = new CarNameValidator();
+
+        assertThatThrownBy(() -> validator.validateCarName("lee "))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름 앞뒤에는 공백을 포함할 수 없습니다.");
     }

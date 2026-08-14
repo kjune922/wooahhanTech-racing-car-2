@@ -1,8 +1,6 @@
 package racingcar.validate;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
@@ -13,7 +11,7 @@ class TryNumValidatorTest {
         int tryNum = 0;
         TryNumValidator tryNumValidator = new TryNumValidator();
 
-        Assertions.assertThatThrownBy(() ->
+        assertThatThrownBy(() ->
                 tryNumValidator.validateTryNum(tryNum))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도횟수는 1미만일 수 없습니다.");

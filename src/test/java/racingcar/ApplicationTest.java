@@ -59,6 +59,15 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 쉼표_앞뒤에_공백이_있으면_예외가_발생한다() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() ->
+                        runException("lee, kim", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

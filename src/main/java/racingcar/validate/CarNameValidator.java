@@ -14,6 +14,10 @@ public class CarNameValidator {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
         }
+
+        if (!carName.equals(carName.strip())){
+            throw new IllegalArgumentException("자동차 이름 앞뒤에는 공백을 포함할 수 없습니다.");
+        }
     }
 
     public void validateCarNames(String[] carNames) {

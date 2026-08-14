@@ -7,7 +7,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 class TryNumValidatorTest {
 
     @Test
-    void 시도횟수는_1미만은_불가능 () {
+    void 시도횟수는_1미만은_불가능() {
         int tryNum = 0;
         TryNumValidator tryNumValidator = new TryNumValidator();
 
@@ -18,7 +18,7 @@ class TryNumValidatorTest {
     }
 
     @Test
-    void 시도횟수는_무조건_1이상 () {
+    void 시도횟수는_무조건_1이상() {
         int tryNum = 1;
         TryNumValidator tryNumValidator = new TryNumValidator();
 

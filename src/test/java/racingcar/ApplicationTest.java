@@ -32,7 +32,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_횟수가_숫자가_아니면_예외_발생 () {
+    void 시도_횟수가_숫자가_아니면_예외_발생() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
                         runException("pobi,lee", "abc"))
@@ -41,7 +41,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_횟수_0이면_예외발생 () {
+    void 시도_횟수_0이면_예외발생() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->
                         runException("lee,kim", "0"))
@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름은_중복_불가능 () {
+    void 자동차_이름은_중복_불가능() {
 
         assertSimpleTest(() ->
                 assertThatThrownBy(() ->

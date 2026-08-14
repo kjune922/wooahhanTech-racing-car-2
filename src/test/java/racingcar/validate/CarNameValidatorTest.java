@@ -2,12 +2,13 @@ package racingcar.validate;
 
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 class CarNameValidatorTest {
 
     @Test
-    void 자동차_이름_중복_불가능 () {
+    void 자동차_이름_중복_불가능() {
         String[] carNames = {"lee","kim","lee"};
         CarNameValidator carNameValidator = new CarNameValidator();
         assertThatThrownBy(() ->
@@ -17,7 +18,7 @@ class CarNameValidatorTest {
     }
 
     @Test
-    void 자동차_이름은_5글자까지만가능 () {
+    void 자동차_이름은_5글자까지만가능() {
         String carName1 = "leeeee";
         String carName2 = "kimmm";
 
@@ -41,7 +42,7 @@ class CarNameValidatorTest {
     }
 
     @Test
-    void 자동차_이름_앞에_공백은_불가능하다 () {
+    void 자동차_이름_앞에_공백은_불가능하다() {
         CarNameValidator carNameValidator = new CarNameValidator();
         assertThatThrownBy(() -> carNameValidator.validateCarName(" lee"))
                 .isInstanceOf(IllegalArgumentException.class)
